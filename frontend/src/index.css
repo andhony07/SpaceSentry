@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom properties for the SpaceSentry design system */
+:root {
+  --color-navy-50: #0a0e1a;
+  --color-navy-100: #111827;
+  --color-navy-200: #1e293b;
+  --color-navy-300: #2a3e52;
+  --color-navy-400: #34495e;
+  --color-navy-500: #2c3e6b;
+  --color-navy-600: #1f2833;
+  --color-navy-700: #141a24;
+  --color-navy-800: #0d1320;
+  --color-navy-900: #050711;
+  --color-cyan-50: #e0f7fa;
+  --color-cyan-100: #b2d7d9;
+  --color-cyan-200: #84b5bc;
+  --color-cyan-300: #56949d;
+  --color-cyan-400: #2d8c9f;
+  --color-cyan-500: #0d8aa8;
+  --color-cyan-600: #0a7d9c;
+  --color-cyan-700: #08708e;
+  --color-cyan-800: #06657e;
+  --color-cyan-900: #035870;
+  --color-surface-0: #0f141d;
+  --color-surface-1: #161c28;
+  --color-surface-2: #1e2638;
+  --color-surface-3: #283248;
+  --color-border: #2b3548;
+  --color-accent: #33c1b6;
+  --color-muted: #8da2b5;
+}
+
+body {
+  @apply bg-surface-0 text-slate-100 font-sans antialiased selection:bg-sentry-500/30 selection:text-sentry-200;
+}
+
+/* Visible focus states */
+:focus-visible {
+  @apply outline-none ring-2 ring-sentry-400/80 ring-offset-2 ring-offset-surface-0;
+}
+
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2b3548 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #2b3548;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #3e4d67;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Card and element styles */
+.card {
+  @apply rounded-xl border border-slate-800/80 bg-surface-1 p-6 shadow-sm;
+}
+.card-small {
+  @apply rounded-lg border border-slate-800/80 bg-surface-1 p-4 shadow-sm;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sentry-400/80 active:scale-[0.98];
+}
+.btn-primary {
+  @apply btn bg-sentry-600 text-white shadow-sm hover:bg-sentry-500 active:bg-sentry-700;
+}
+.btn-secondary {
+  @apply btn bg-surface-2 text-slate-200 border border-slate-700/60 hover:bg-surface-3 hover:text-white hover:border-slate-600;
+}
+.btn-outline {
+  @apply btn border border-slate-700/80 bg-surface-1/60 text-slate-300 hover:border-slate-500 hover:bg-surface-2 hover:text-slate-100;
+}
+.btn-ghost {
+  @apply btn text-slate-300 hover:bg-surface-2 hover:text-slate-100;
+}
+.btn-disabled {
+  @apply btn opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* Inputs */
+.input {
+  @apply w-full rounded-lg border border-slate-700/80 bg-surface-2 px-3.5 py-2 text-sm text-slate-100 placeholder:text-slate-500 transition-colors focus-visible:border-sentry-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sentry-400/30;
+}
+.input-large {
+  @apply w-full rounded-lg border border-slate-700/80 bg-surface-2 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 transition-colors focus-visible:border-sentry-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sentry-400/30;
+}
+
+/* Status badges */
+.badge {
+  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-medium capitalize ring-1 ring-inset;
+}
+.badge-queued {
+  @apply bg-slate-800/80 text-slate-300 ring-slate-700/60;
+}
+.badge-running {
+  @apply bg-sentry-500/15 text-sentry-300 ring-sentry-500/40;
+}
+.badge-completed {
+  @apply bg-emerald-500/15 text-emerald-300 ring-emerald-500/40;
+}
+.badge-cancelled {
+  @apply bg-amber-500/15 text-amber-300 ring-amber-500/40;
+}
+.badge-failed {
+  @apply bg-rose-500/15 text-rose-300 ring-rose-500/40;
+}
+
+/* Tables */
+.table-container {
+  @apply w-full overflow-x-auto rounded-xl border border-slate-800/80 bg-surface-1 shadow-sm;
+}
+.table {
+  @apply w-full border-collapse text-left text-sm;
+}
+.table th {
+  @apply px-4 py-3 text-xs font-semibold uppercase tracking-wider text-slate-400 border-b border-slate-800/80 bg-surface-2/40;
+}
+.table td {
+  @apply px-4 py-3 border-b border-slate-800/50 align-middle;
+}
+.table tbody tr:hover {
+  @apply bg-surface-2/30;
+}
+.table tbody tr:last-child td {
+  @apply border-b-0;
+}
+
+/* Empty states */
+.empty-state {
+  @apply text-center py-12 px-4;
+}
+.empty-state-icon {
+  @apply mx-auto mb-4 text-slate-400;
+}
+.empty-state-title {
+  @apply text-base font-semibold text-slate-100 mb-1.5;
+}
+.empty-state-desc {
+  @apply text-sm text-slate-400 max-w-md mx-auto;
+}
+
+/* Stat tiles */
+.stat-tile {
+  @apply rounded-xl border border-slate-800/80 bg-surface-1 p-4 text-left transition-colors hover:border-slate-700/80 shadow-sm;
+}
+.stat-label {
+  @apply text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5;
+}
+.stat-value {
+  @apply font-mono text-xl font-bold text-slate-100;
+}
+
+/* Progress */
+.progress-bar {
+  @apply h-2 rounded-full bg-surface-2 overflow-hidden;
+}
+.progress-fill {
+  @apply h-full bg-sentry-500 transition-all duration-300;
+}
+
+/* Dialogs */
+.dialog {
+  @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+}
+.dialog-content {
+  @apply bg-surface-1 rounded-xl border border-slate-700/80 p-6 w-full max-w-lg shadow-2xl;
+}
